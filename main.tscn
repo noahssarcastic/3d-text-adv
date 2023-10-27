@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsy1loxm0mus6"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ko1lj"]
+[ext_resource type="PackedScene" uid="uid://be8c31eh66ac1" path="res://player.tscn" id="1_yhfm3"]
+[ext_resource type="Material" uid="uid://b1qf3uyjgwo8x" path="res://materials/ground.tres" id="2_7bgsv"]
+[ext_resource type="PackedScene" uid="uid://dmkpxftjtm7u3" path="res://ui.tscn" id="3_qk2e8"]
+
+[sub_resource type="Environment" id="Environment_f80pd"]
+background_mode = 1
+background_color = Color(0.623529, 0.74902, 1, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cikw4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c3a5o"]
+material = ExtResource("2_7bgsv")
+size = Vector2(20, 20)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ko1lj")
+
+[node name="World" type="Node" parent="."]
+process_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_f80pd")
+
+[node name="Sun" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(-0.545239, -0.787726, 0.286709, -0.24994, 0.479227, 0.841351, -0.800153, 0.387077, -0.458178, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144489, -0.201279, 0)
+shape = SubResource("WorldBoundaryShape3D_cikw4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground"]
+mesh = SubResource("PlaneMesh_c3a5o")
+
+[node name="Player" parent="World" instance=ExtResource("1_yhfm3")]
+
+[node name="UI" parent="." instance=ExtResource("3_qk2e8")]
