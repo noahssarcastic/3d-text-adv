@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dpvwwvw3pro"]
+
+[ext_resource type="Script" path="res://game_object.gd" id="1_t00kk"]
+[ext_resource type="Script" path="res://verbs/lookable.gd" id="2_2daqt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gelt6"]
+
+[node name="Ball" type="Node3D"]
+script = ExtResource("1_t00kk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_gelt6")
+
+[node name="Lookable" type="Node3D" parent="."]
+script = ExtResource("2_2daqt")
+description = "A ball"

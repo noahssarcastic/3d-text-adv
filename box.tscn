@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq5cj2468xo37"]
+
+[ext_resource type="Script" path="res://box.gd" id="1_envm8"]
+[ext_resource type="Material" uid="uid://c53ujc5h43yv8" path="res://materials/box.tres" id="2_6cg3f"]
+[ext_resource type="Script" path="res://verbs/lookable.gd" id="3_gxs05"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_58tas"]
+
+[node name="Box" type="Node3D"]
+script = ExtResource("1_envm8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("2_6cg3f")
+mesh = SubResource("BoxMesh_58tas")
+
+[node name="Lookable" type="Node3D" parent="."]
+script = ExtResource("3_gxs05")
+description = "An ordinary box"
