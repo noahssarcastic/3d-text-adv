@@ -17,6 +17,7 @@ material = ExtResource("2_7bgsv")
 size = Vector2(20, 20)
 
 [node name="Main" type="Node"]
+process_mode = 3
 script = ExtResource("1_ko1lj")
 
 [node name="World" type="Node" parent="."]
