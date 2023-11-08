@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://4ognfqg12gxm"]
+
+[ext_resource type="Script" path="res://prompt.gd" id="1_cagm6"]
+[ext_resource type="PackedScene" uid="uid://c1jtqcvm8bkte" path="res://terminal.tscn" id="2_dsn8i"]
+
+[node name="Prompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cagm6")
+metadata/debug = false
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.196078)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Terminal" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_dsn8i")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2

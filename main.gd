@@ -32,7 +32,6 @@ func _ready():
 	
 	prompt.prompt_submitted.connect(func(text: String):
 		handle_prompt(text)
-		state = MENU_STATE_GAME
 	)
 
 
@@ -52,7 +51,9 @@ func handle_prompt(text: String) -> void:
 		match verb:
 			"look": 
 				for l in Lookable.look_around(game_objects):
-					print(l)
+					prompt.write(l)
+			"clear":
+				prompt.reset_display()
 		return
 #	var obj = prompt_parts[1]
 #	match verb:

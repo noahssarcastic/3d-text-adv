@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmppie6ea1quf"]
+
+[ext_resource type="Script" path="res://random_timer.gd" id="1_kev86"]
+
+[node name="RandomTimer" type="Node"]
+script = ExtResource("1_kev86")

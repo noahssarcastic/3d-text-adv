@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdqojx2o2htsd"]
+
+[ext_resource type="Script" path="res://sound_queue.gd" id="1_wux2r"]
+
+[node name="SoundQueue" type="Node"]
+script = ExtResource("1_wux2r")
